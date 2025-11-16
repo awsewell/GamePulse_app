@@ -1,0 +1,104 @@
+{
+  "name": "Reminder",
+  "type": "object",
+  "properties": {
+    "game_id": {
+      "type": "string",
+      "description": "ID of the game this reminder belongs to"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the reminder"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "interval",
+        "fixed"
+      ],
+      "description": "Type of reminder"
+    },
+    "interval_hours": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 72,
+      "description": "Hours for interval reminders"
+    },
+    "interval_minutes": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 59,
+      "description": "Minutes for interval reminders"
+    },
+    "fixed_type": {
+      "type": "string",
+      "enum": [
+        "daily",
+        "weekly"
+      ],
+      "description": "Type of fixed reminder"
+    },
+    "fixed_time": {
+      "type": "string",
+      "description": "Time for fixed reminders (HH:mm format)"
+    },
+    "fixed_days": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 6
+      },
+      "description": "Days of week for weekly fixed reminders (0=Sunday)"
+    },
+    "timezone": {
+      "type": "string",
+      "enum": [
+        "local",
+        "utc"
+      ],
+      "default": "local",
+      "description": "Timezone for fixed reminders"
+    },
+    "milestone_enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether milestone tracking is enabled"
+    },
+    "milestone_progress": {
+      "type": "number",
+      "default": 0,
+      "description": "Current milestone progress"
+    },
+    "milestone_target": {
+      "type": "number",
+      "description": "Target milestone"
+    },
+    "next_trigger_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Next scheduled trigger time"
+    },
+    "last_reset_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last time the reminder was reset"
+    },
+    "notification_preference": {
+      "type": "string",
+      "enum": [
+        "default",
+        "silent",
+        "suppress",
+        "delay"
+      ],
+      "default": "default",
+      "description": "Per-reminder notification preference for quiet time"
+    }
+  },
+  "required": [
+    "game_id",
+    "name",
+    "type"
+  ]
+}
