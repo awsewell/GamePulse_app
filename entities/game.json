@@ -1,0 +1,23 @@
+{
+  "name": "Game",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the game"
+    },
+    "icon_url": {
+      "type": "string",
+      "description": "URL to the game icon"
+    },
+    "is_custom": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this is a custom game added by user"
+    }
+  },
+  "required": [
+    "name",
+    "icon_url"
+  ]
+}
