@@ -1,0 +1,45 @@
+{
+  "name": "QuietTime",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the quiet time profile"
+    },
+    "start_time": {
+      "type": "string",
+      "description": "Start time (HH:mm format)"
+    },
+    "end_time": {
+      "type": "string",
+      "description": "End time (HH:mm format)"
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 6
+      },
+      "description": "Days of week (0=Sunday)"
+    },
+    "behavior": {
+      "type": "string",
+      "enum": [
+        "delay",
+        "suppress",
+        "silent",
+        "manual"
+      ],
+      "default": "delay",
+      "description": "Notification behavior during quiet time"
+    }
+  },
+  "required": [
+    "name",
+    "start_time",
+    "end_time",
+    "days",
+    "behavior"
+  ]
+}
